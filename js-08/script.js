@@ -174,7 +174,7 @@ console.log(i, j, k);
 //Default values
 const [p = 1, q = 2, r = 3] = [8, 9];
 console.log(p, q, r);
-*/
+
 
 // Part-1 Destructuring
 // SPREAD, because on RIGHT side of =
@@ -214,3 +214,86 @@ add(...x);
 
 restaurant.orderPizza("mushrooms", "onion", "olives", "spinach");
 restaurant.orderPizza("mushrooms");
+
+//USE ANY daya type, return ANY data type short circuiting
+console.log("--------OR---------");
+console.log(3 || "Jonas");
+console.log("" || "Jonas");
+console.log(true || 0);
+console.log(undefined || null);
+console.log(undefined || 0 || "" || "Hello" || 23 || null);
+
+restaurant.numGuests = 23;
+const guests1 = restaurant.numGuests ? restaurant.numGuests : 10;
+console.log(guests1);
+
+const guests2 = restaurant.guests2 || 10;
+console.log(guests2);
+
+console.log("---------AND-----------");
+
+console.log(0 && "Jonas");
+console.log(7 && "Jonas");
+
+console.log("Hello" && 23 && null && "Jonas");
+
+if (restaurant.orderPizza) {
+  restaurant.orderPizza("mushrooms", "spinach");
+}
+
+restaurant.orderPizza && restaurant.orderPizza("mushrooms", "spinach");
+
+
+restaurant.numGuests = 0;
+const guests = restaurant.guests2 || 10;
+console.log(guests);
+
+//Nullish : null and undefined (Not o or '')
+const guestCorrect = restaurant.numGuests ?? 10;
+console.log(guestCorrect);
+
+*/
+
+const game = {
+  team1: "Bayern Munich",
+  team2: "Borrussia Dortmund",
+  players: [
+    [
+      "Neuer",
+      "Pavard",
+      "Martinez",
+      "Alaba",
+      "Davies",
+      "Kimmich",
+      "Goretzka",
+      "Coman",
+      "Muller",
+      "Gnarby",
+      "Lewandowski",
+    ],
+    [
+      "Burki",
+      "Schulz",
+      "Hummels",
+      "Akanji",
+      "Hakimi",
+      "Weigl",
+      "Witsel",
+      "Hazard",
+      "Brandt",
+      "Sancho",
+      "Gotze",
+    ],
+  ],
+  score: "4:0",
+  scored: ["Lewandowski", "Gnarby", "Lewandowski", "Hummels"],
+  date: "Nov 9th, 2037",
+  odds: {
+    team1: 1.33,
+    x: 3.25,
+    team2: 6.5,
+  },
+};
+
+const [players1, players2] = game.players;
+console.log(players1, players2);
