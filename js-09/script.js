@@ -69,3 +69,59 @@ function myObject() {
 }
 var myObjectInstance = new myObject();
 alert(myObjectInstance.performMethod());
+
+function showStatistics(name, team, position, average, homeruns, rbi) {
+  document.write('<p><strong>Name:</strong> ' + arguments[0] + '<br />');
+  document.write('<strong>Team:</strong> ' + arguments[1] + '<br />');
+
+  if (typeof arguments[2] === 'string') {
+    document.write('<strong>Position:</strong> ' + position + '<br />');
+  }
+  if (typeof arguments[3] === 'number') {
+    document.write('<strong>Batting Average:</strong> ' + average + '<br />');
+  }
+  if (typeof arguments[4] === 'number') {
+    document.write('<strong>Home Runs:</strong> ' + homeruns + '<br />');
+  }
+  if (typeof arguments[5] === 'number') {
+    document.write('<strong>Runs Batted In:</strong> ' + rbi + '</p>');
+  }
+}
+showStatistics('Mark Teixeira');
+showStatistics('Mark Teixeira', 'New York Yankees');
+showStatistics('Mark Teixeira', 'New York Yankees', '1st Base', 0.284, 32, 101);
+
+function showStatistics(args) {
+  document.write('<p><strong>Name:</strong> ' + args.name + '<br />');
+  document.write('<strong>Team:</strong> ' + args.team + '<br />');
+  if (typeof args.position === 'string') {
+    document.write('<strong>Position:</strong> ' + args.position + '<br />');
+  }
+  if (typeof args.average === 'number') {
+    document.write('<strong>Average:</strong> ' + args.average + '<br />');
+  }
+  if (typeof args.homeruns === 'number') {
+    document.write('<strong>Home Runs:</strong> ' + args.homeruns + '<br />');
+  }
+  if (typeof args.rbi === 'number') {
+    document.write('<strong>Runs Batted In:</strong> ' + args.rbi + '</p>');
+  }
+}
+
+showStatistics({
+  name: 'Mark Teixeira',
+});
+
+showStatistics({
+  name: 'Mark Teixeira',
+  team: 'New York Yankees',
+});
+
+showStatistics({
+  name: 'Mark Teixeira',
+  team: 'New York Yankees',
+  position: '1st Base',
+  average: 0.284,
+  homeruns: 32,
+  rbi: 101,
+});
