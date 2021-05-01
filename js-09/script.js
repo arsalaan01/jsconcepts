@@ -205,3 +205,23 @@ alert(arr === arrCopy); // false (not same reference)
 arr.push(4);
 alert(arr); // 1, 2, 3, 4
 alert(arrCopy); // 1, 2, 3
+
+const user = {
+  name: 'Alex',
+  address: '15th Park Avenue',
+  age: 43,
+  department: {
+    name: 'Sales',
+    Shift: 'Morning',
+    address: {
+      city: 'Bangalore',
+      street: '7th Residency Rd',
+      zip: 560001,
+    },
+  },
+};
+
+const { department } = user;
+const {
+  department: { address },
+} = user;
