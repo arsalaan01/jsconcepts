@@ -25,7 +25,7 @@ createBooking('AI312', 2);
 createBooking('AI312', 5);
 createBooking('AI312', undefined, 1000);
 
-*/
+
 
 const flight = 'LH234';
 const arsal = {
@@ -40,10 +40,67 @@ const checkIn = function (flightNum, passenger) {
   if (passenger.passport === 23231487645) {
     alert('Checked In');
   } else {
-    alert('wrong password!');
+    alert('wrong passport!');
   }
 };
 
 checkIn(flight, arsal);
 console.log(flight);
 console.log(arsal);
+
+// is the same as doing
+const flightNum = flight;
+const passenger = arsal;
+
+const newPassport = function (person) {
+  person.passport = Math.trunc(Math.random() * 1000000000000);
+};
+
+newPassport(arsal);
+checkIn(flight, arsal);
+
+
+
+// First class Functions or first class citizens
+
+// addEventListener will be higher order funciton in below example because it's recieving a func as a parameter in it where greet is a callback func
+const greet = () => console.log('Hey Arsalaan');
+btnClose.addEventListener('click', greet);
+
+function count() {
+  //higher order func
+  let counter = 0;
+  return function () {
+    // returned function
+    counter++;
+  };
+}
+
+*/
+const oneWord = function (str) {
+  return str.replace(/ /g, '').toLowerCase();
+};
+
+const upperFirstWord = function (str) {
+  const [first, ...others] = str.split(' ');
+  return [first.toUpperCase(), ...others].join(' ');
+};
+
+// higher order function
+const transformer = function (str, fn) {
+  console.log(`Original string: ${str}`);
+  console.log(`Transformed string: ${fn(str)}`);
+  console.log(`Transformed by: ${fn.name}`);
+};
+
+transformer('Javascript is the best!', upperFirstWord);
+transformer('Javascript is the best!', oneWord);
+
+//js ae uses all the times
+const high5 = function () {
+  console.log('👋');
+};
+
+document.body.addEventListener('click', high5);
+
+['Jonas', 'Martha', 'Arsalaan'].forEach(high5);
