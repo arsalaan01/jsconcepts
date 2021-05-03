@@ -76,7 +76,7 @@ function count() {
   };
 }
 
-*/
+
 const oneWord = function (str) {
   return str.replace(/ /g, '').toLowerCase();
 };
@@ -104,3 +104,20 @@ const high5 = function () {
 document.body.addEventListener('click', high5);
 
 ['Jonas', 'Martha', 'Arsalaan'].forEach(high5);
+
+*/
+
+const greet = function (greeting) {
+  return function (name) {
+    console.log(`${greeting} ${name}`);
+  };
+};
+
+const greeterHey = greet('Hey');
+greeterHey('Arsalaan');
+greeterHey('GeekMozo');
+
+greet('Hello')('Arsalaan');
+
+const greetArr = greeting => name => console.log(`${greeting} ${name}`);
+greetArr('Hi')('Arsalaan');
