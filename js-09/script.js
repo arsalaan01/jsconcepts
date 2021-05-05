@@ -120,7 +120,7 @@ greet('Hello')('Arsalaan');
 const greetArr = greeting => name => console.log(`${greeting} ${name}`);
 greetArr('Hi')('Arsalaan');
 
-*/
+
 
 const lufthansa = {
   airline: 'Lufthansa',
@@ -259,3 +259,29 @@ document
 poll.displayResults.call({ answers: [5, 2, 3] }, 'string');
 poll.displayResults.call({ answers: [1, 5, 3, 9, 6, 1] }, 'string');
 poll.displayResults.call({ answers: [1, 5, 3, 9, 6, 1] });
+
+*/
+// immediatly invoked function
+
+const runOnce = function () {
+  console.log('This will never run again');
+};
+runOnce();
+
+//iife
+(function () {
+  console.log('This will never run again');
+  const isPrivate = 23;
+})();
+
+// console.log(isPrivate);
+
+(() => console.log('This will also never run again'))();
+
+{
+  const isPrivate = 23;
+  var notPrivate = 46;
+}
+
+//console.log(isPrivate);
+console.log(notPrivate);
