@@ -1,5 +1,4 @@
 'use strict';
-/*
 
 const bookings = [];
 const createBooking = function (
@@ -24,8 +23,6 @@ createBooking('AI312', 2, 800);
 createBooking('AI312', 2);
 createBooking('AI312', 5);
 createBooking('AI312', undefined, 1000);
-
-
 
 const flight = 'LH234';
 const arsal = {
@@ -59,8 +56,6 @@ const newPassport = function (person) {
 newPassport(arsal);
 checkIn(flight, arsal);
 
-
-
 // First class Functions or first class citizens
 
 // addEventListener will be higher order funciton in below example because it's recieving a func as a parameter in it where greet is a callback func
@@ -75,7 +70,6 @@ function count() {
     counter++;
   };
 }
-
 
 const oneWord = function (str) {
   return str.replace(/ /g, '').toLowerCase();
@@ -119,8 +113,6 @@ greet('Hello')('Arsalaan');
 
 const greetArr = greeting => name => console.log(`${greeting} ${name}`);
 greetArr('Hi')('Arsalaan');
-
-
 
 const lufthansa = {
   airline: 'Lufthansa',
@@ -285,8 +277,6 @@ runOnce();
 //console.log(isPrivate);
 console.log(notPrivate);
 
-
-
 const secureBooking = function () {
   let passengerCount = 0;
 
@@ -304,7 +294,6 @@ booker();
 
 console.dir(booker);
 
-*/
 //Example - 1
 let f;
 const g = function () {
@@ -346,3 +335,12 @@ const boardPassengers = function (n, wait) {
 
 const perGroup = 1000;
 boardPassengers(180, 3);
+
+(function () {
+  const header = document.querySelector('h1');
+  header.style.color = 'red';
+
+  document.querySelector('body').addEventListener('click', function () {
+    header.style.color = 'blue';
+  });
+})();
