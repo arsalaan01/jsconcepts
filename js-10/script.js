@@ -78,6 +78,12 @@ const displayMovements = function (movements) {
 };
 displayMovements(account1.movements);
 
+const calcDisplayBalance = function (movements) {
+  const balance = movements.reduce((acc, mov) => acc + mov, 0);
+  labelBalance.textContent = `${balance} EUR`;
+};
+calcDisplayBalance(account1.movements);
+
 const user = "Steven Thomas Williams"; // username should be stv
 const createUsernames = function (accs) {
   accs.forEach(function (acc) {
@@ -89,8 +95,9 @@ const createUsernames = function (accs) {
   });
 };
 createUsernames(accounts);
-console.log(accounts);
+//console.log(accounts);
 
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 /*
 
 /////////////////////////////////////////////////
@@ -209,8 +216,6 @@ currenciesUnique.forEach(function (value, _, map) {
 
 //Map,filter and reduce
 
-const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
-
 const euroToUsd = 1.1;
 
 // const movementsUsd = movements.map(function (mov) {
@@ -236,28 +241,38 @@ const movementsDescriptions = movements.map(
 
 console.log(movementsDescriptions);
 
+const deposits = movements.filter(function (mov, i, arr) {
+  return mov > 0;
+});
+console.log(movements);
+console.log(deposits);
+
+const depositor = [];
+for (const mov of movements) if (mov > 0) depositor.push(mov);
+console.log(depositor);
+
+const withdrawals = movements.filter((mov) => mov < 0);
+console.log(withdrawals);
+
 */
 
-// 1.
-const bankDepositSum = accounts
-  .flatMap((acc) => acc.movements)
-  .filter((mov) => mov > 0)
-  .reduce((sum, cur) => sum + cur, 0);
+// in reduce accumulator is like a snowball
+console.log(movements);
+// const balance = movements.reduce(function (acc, cur, i, arr) {
+//   console.log(`Iteration ${i}: ${acc}`);
+//   return acc + cur;
+// }, 0);
 
-console.log(bankDepositSum);
+const balance = movements.reduce((acc, cur) => acc + cur, 0);
+console.log(balance);
 
-// 2.
-// const numDeposits1000 = accounts
-//   .flatMap(acc => acc.movements)
-//   .filter(mov => mov >= 1000).length;
+let balance2 = 0;
+for (const mov of movements) balance2 += mov;
+console.log(balance2);
 
-const numDeposits1000 = accounts
-  .flatMap((acc) => acc.movements)
-  .reduce((count, cur) => (cur >= 1000 ? ++count : count), 0);
-
-console.log(numDeposits1000);
-
-// Prefixed ++ operator
-let a = 10;
-console.log(++a);
-console.log(a);
+//Maximum value
+const max = movements.reduce(function (acc, mov) {
+  if (acc > mov) return acc;
+  else return mov;
+}, movements[0]);
+console.log(max);
