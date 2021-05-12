@@ -254,7 +254,7 @@ console.log(depositor);
 const withdrawals = movements.filter((mov) => mov < 0);
 console.log(withdrawals);
 
-*/
+
 
 // in reduce accumulator is like a snowball
 console.log(movements);
@@ -276,3 +276,26 @@ const max = movements.reduce(function (acc, mov) {
   else return mov;
 }, movements[0]);
 console.log(max);
+*/
+
+const calAverageHumanAge = function (ages) {
+  // const humanAges = ages.map(function (age) {
+  //   if (age <= 2) return 2 * age;
+  //   else if (age > 2) return 16 + age * 4;
+  // });
+  // console.log(humanAges);
+  const humanAges = ages.map((age) => (age <= 2 ? 2 * age : 16 + age * 4));
+  const adults = humanAges.filter((age) => age >= 18);
+  console.log(humanAges);
+  console.log(adults);
+
+  // const avg = adults.reduce((acc, age) => acc + age, 0) / adults.length;
+  const avg = adults.reduce((acc, age, i, arr) => acc + age / arr.length, 0);
+
+  return avg;
+  //2 3. (2+3)/2 = 2.5 === 2/2+3/2 = 2.5
+};
+const avg1 = calAverageHumanAge([5, 2, 4, 1, 15, 8, 3]);
+const avg2 = calAverageHumanAge([16, 6, 10, 5, 6, 1, 4]);
+
+console.log(avg1, avg2);
