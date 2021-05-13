@@ -327,7 +327,6 @@ const totalDepositsUSD = movements
   .reduce((acc, mov) => acc + mov, 0);
 console.log(totalDepositsUSD);
 
-*/
 const calAverageHumanAge = (ages) =>
   ages
     .map((age) => (age <= 2 ? 2 * age : 16 + age * 4))
@@ -338,3 +337,13 @@ const avg1 = calAverageHumanAge([5, 2, 4, 1, 15, 8, 3]);
 const avg2 = calAverageHumanAge([16, 6, 10, 5, 6, 1, 4]);
 
 console.log(avg1, avg2);
+*/
+
+// find return first element satisfying condition in callback function
+const firstWithdrawal = movements.find((mov) => mov < 0);
+console.log(movements);
+console.log(firstWithdrawal);
+console.log(accounts);
+
+const account = accounts.find((acc) => acc.owner === "Jessica Davis");
+console.log(account);
