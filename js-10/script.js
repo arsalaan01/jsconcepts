@@ -84,6 +84,26 @@ const calcDisplayBalance = function (movements) {
 };
 calcDisplayBalance(account1.movements);
 
+const calcDisplaySummary = function (movements) {
+  const incomes = movements
+    .filter((mov) => mov > 0)
+    .reduce((acc, mov) => acc + mov, 0);
+  labelSumIn.textContent = `${incomes}€`;
+
+  const out = movements
+    .filter((mov) => mov < 0)
+    .reduce((acc, mov) => acc + mov, 0);
+  labelSumOut.textContent = `${Math.abs(out)}€`;
+
+  const interest = movements
+    .filter((mov) => mov > 0)
+    .map((deposit) => (deposit * 1.2) / 100)
+    .filter((int, i, arr) => int >= 1)
+    .reduce((acc, int) => acc + int, 0);
+  labelSumInterest.textContent = `${interest}€`;
+};
+calcDisplaySummary(account1.movements);
+
 const user = "Steven Thomas Williams"; // username should be stv
 const createUsernames = function (accs) {
   accs.forEach(function (acc) {
@@ -276,7 +296,6 @@ const max = movements.reduce(function (acc, mov) {
   else return mov;
 }, movements[0]);
 console.log(max);
-*/
 
 const calAverageHumanAge = function (ages) {
   // const humanAges = ages.map(function (age) {
@@ -299,3 +318,12 @@ const avg1 = calAverageHumanAge([5, 2, 4, 1, 15, 8, 3]);
 const avg2 = calAverageHumanAge([16, 6, 10, 5, 6, 1, 4]);
 
 console.log(avg1, avg2);
+*/
+
+//Pipeline
+const euroToUsd = 1.1;
+const totalDepositsUSD = movements
+  .filter((mov) => mov > 0)
+  .map((mov) => mov * euroToUsd)
+  .reduce((acc, mov) => acc + mov, 0);
+console.log(totalDepositsUSD);
