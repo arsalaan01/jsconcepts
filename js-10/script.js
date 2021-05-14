@@ -166,14 +166,37 @@ btnTransfer.addEventListener("click", function (e) {
   }
 });
 
+btnLoan.addEventListener("click", function (e) {
+  e.preventDefault();
+  const amount = Number(inputLoanAmount.value);
+  if (
+    amount > 0 &&
+    currentAccount.movements.some((mov) => mov >= amount * 0.1)
+  ) {
+    //Add the movements
+    currentAccount.movements.push(amount);
+    updateUI(currentAccount);
+    inputLoanAmount.value = "";
+  }
+});
+
 btnClose.addEventListener("click", function (e) {
   e.preventDefault();
   if (
     inputCloseUsername.value === currentAccount.username &&
     Number(inputClosePin.value) === currentAccount.pin
   ) {
-    account.splice(index, 1);
+    const index = accounts.findIndex(
+      (acc) => acc.username === currentAccount.username
+    );
+
+    //delete account
+    accounts.splice(index, 1);
+
+    //Hide UI
+    containerApp.style.opacity = 0;
   }
+  inputCloseUsername.value = inputClosePin.value = "";
 });
 
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
@@ -396,7 +419,7 @@ const avg1 = calAverageHumanAge([5, 2, 4, 1, 15, 8, 3]);
 const avg2 = calAverageHumanAge([16, 6, 10, 5, 6, 1, 4]);
 
 console.log(avg1, avg2);
-*/
+
 
 // find return first element satisfying condition in callback function
 const firstWithdrawal = movements.find((mov) => mov < 0);
@@ -408,3 +431,25 @@ const account = accounts.find((acc) => acc.owner === "Jessica Davis");
 console.log(account);
 
 // findIndex method returns the index of found element
+
+*/
+
+console.log(movements);
+// check for equality and return boolean
+console.log(movements.includes(-130));
+
+//SOME: condition
+console.log(movements.some((mov) => mov === -130));
+const anyDeposits = movements.some((mov) => mov > 1500);
+console.log(anyDeposits);
+
+//Every: Method returns boolean if all elements satisfy condition
+console.log(movements.every((mov) => mov > 0));
+console.log(account4.movements.every((mov) => mov > 0));
+
+// Seperate callback
+
+const deposit = (mov) => mov < 0;
+console.log(movements.some(deposit));
+console.log(movements.every(deposit));
+console.log(movements.filter(deposit));
