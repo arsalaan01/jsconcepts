@@ -166,6 +166,16 @@ btnTransfer.addEventListener("click", function (e) {
   }
 });
 
+btnClose.addEventListener("click", function (e) {
+  e.preventDefault();
+  if (
+    inputCloseUsername.value === currentAccount.username &&
+    Number(inputClosePin.value) === currentAccount.pin
+  ) {
+    account.splice(index, 1);
+  }
+});
+
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 /*
 
@@ -396,3 +406,5 @@ console.log(accounts);
 
 const account = accounts.find((acc) => acc.owner === "Jessica Davis");
 console.log(account);
+
+// findIndex method returns the index of found element
