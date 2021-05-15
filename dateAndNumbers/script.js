@@ -347,4 +347,36 @@ labelBalance.addEventListener('click', function () {
     if (i % 3 === 0) row.style.backgroundColor = 'blue';
   });
 });
+
+console.log(2 ** 53 - 1);
+console.log(Number.MAX_SAFE_INTEGER);
+console.log(2 ** 53 + 1);
+console.log(2 ** 53 + 2);
+console.log(2 ** 53 + 3);
+console.log(2 ** 53 + 4);
+
+console.log(979734545345435345345345345345345345n);
+console.log(BigInt(979734545345435345345345345345345345));
+
+//Operations
+
+console.log(10000n + 10000n);
+console.log(434323423532535233342343424234243234234n * 5345534n);
+//console.log(Math.sqrt(16n));
+
+const huge = 80808230482038402384023840232480n;
+const num = 23;
+console.log(huge * BigInt(num));
+
+// exception logical operator
+console.log(20n > 5);
+console.log(20n === 20);
+console.log(typeof 2n);
+console.log(20 == 20);
+
+console.log(huge + 'is Really Big!!!');
+
+// Divisions
+console.log(11n / 3n);
+console.log(10 / 3);
 */
