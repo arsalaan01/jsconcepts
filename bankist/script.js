@@ -42,6 +42,7 @@ console.log(document.documentElement);
 console.log(document.head);
 console.log(document.body);
 
+const header = document.querySelector('.header');
 document.querySelector('section--1');
 const allSections = document.querySelectorAll('.section');
 console.log(allSections);
@@ -51,30 +52,14 @@ const allButtons = document.getElementsByTagName('button');
 console.log(allButtons);
 
 console.log(document.getElementsByClassName('btn'));
- 
+
 // creating and inserting elements
 //.insertAdjacentHTML
 
 const message = document.createElement('div');
-message.classList('cookie-message');
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+message.classList.add('cookie-message');
+//message.textContent = 'We use cookies for improving functionality and analytics.';
+message.innerHTML =
+  'We use cookies for improving functionality and analytics.<button class="btn btn--close-cookie">Got it!</button>';
+header.prepend(message);
+console.log(header);
