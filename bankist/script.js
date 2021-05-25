@@ -35,7 +35,7 @@ document.addEventListener('keydown', function (e) {
 
 /////////////////////////////////////////////
 ////////////////////////////////////////////
-
+/*
 // selecting element
 
 console.log(document.documentElement);
@@ -89,7 +89,7 @@ console.log(getComputedStyle(message).height);
 message.style.height =
   Number.parseFloat(getComputedStyle(message).height, 10) + 30 + 'px';
 
-document.documentElement.style.setProperty('--color-primary', 'orangered');
+//document.documentElement.style.setProperty('--color-primary', 'orangered');
 
 // attributes
 
@@ -122,3 +122,59 @@ logo.classList.contains('c');
 
 // Don't use because below will overwrite
 logo.className = 'jonas';
+
+*/
+
+// adding cookies
+
+const header = document.querySelector('.header');
+const message = document.createElement('div');
+message.classList.add('cookie-message');
+message.innerHTML =
+  'We use cookies for improving functionality and analytics.<button class="btn btn--close-cookie">Got it!</button>';
+header.prepend(message);
+
+document
+  .querySelector('.btn--close-cookie')
+  .addEventListener('click', function () {
+    message.remove();
+    //message.parentNode.removeChild(message);
+  });
+
+message.style.backgroundColor = '#37383d';
+message.style.width = '120%';
+message.style.height =
+  Number.parseFloat(getComputedStyle(message).height, 10) + 30 + 'px';
+
+//smooth scrolling
+
+const btnScrollTo = document.querySelector('.btn--scroll-to');
+const section1 = document.querySelector('#section--1');
+
+btnScrollTo.addEventListener('click', function (e) {
+  const s1coords = section1.getBoundingClientRect();
+  console.log(s1coords);
+  console.log(e.target.getBoundingClientRect());
+
+  console.log('Current scrill (x/y)', window.pageXOffset, window.pageYOffset);
+
+  console.log(
+    'Height/width viewport',
+    document.documentElement.clientHeight,
+    document.documentElement.clientWidth
+  );
+  // Scrolling
+
+  // window.scrollTo(
+  //   s1coords.left + window.pageXOffset,
+  //   s1coords.top + window.pageYOffset
+  // );
+
+  // window.scrollTo({
+  //   left: s1coords.left + window.pageXOffset,
+  //   top: s1coords.top + window.pageYOffset,
+  //   behavior: 'smooth',
+  // });
+
+  section1.scrollIntoView({ behavior: 'smooth' });
+});
