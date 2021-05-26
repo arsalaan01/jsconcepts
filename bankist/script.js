@@ -123,6 +123,21 @@ logo.classList.contains('c');
 // Don't use because below will overwrite
 logo.className = 'jonas';
 
+// events
+
+const h1 =  document.querySelector('h1');
+
+const alertH1 = function(e){
+  alert('Your are reading the heading.');
+}
+
+h1.addEventListener('mouseenter',alertH1)
+setTimeout( ()=>h1.removeEventListener('mouseenter',alertH1),3000);
+// h1.onmouseenter = function(e){
+//   alert('Your are reading the heading.');
+// }
+ 
+
 */
 
 // adding cookies
@@ -178,3 +193,20 @@ btnScrollTo.addEventListener('click', function (e) {
 
   section1.scrollIntoView({ behavior: 'smooth' });
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                              
+
+
