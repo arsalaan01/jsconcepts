@@ -523,3 +523,17 @@ console.log(h1.parentElement.children);
 });
 
 */
+
+document.addEventListener('DOMContentLoaded', function (e) {
+  console.log('HTML parsed and dom tree built!');
+});
+
+window.addEventListener('load', function (e) {
+  console.log('Page fully loaded', e);
+});
+
+// window.addEventListener('beforeunload', function (e) {
+//   e.preventDefault();
+//   console.log(e);
+//   e.returnValue = '';
+// });
