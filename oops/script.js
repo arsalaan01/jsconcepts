@@ -1,8 +1,7 @@
 'use strict';
 
-// OOP using the constructor function
-
 /*
+// OOP using the constructor function
 
 const Person = function (firstName, birthYear) {
   this.firstName = firstName;
@@ -30,6 +29,16 @@ const jay = 'Jay';
 
 console.log(arsalaan instanceof Person);
 console.log(jay instanceof Person);
+
+// Static Methods
+
+Person.hey = function () {
+  console.log('Hey there 👋');
+  console.log(this);
+};
+
+Person.hey();
+//arsalaan.hey();
 
 // Prototypes
 
@@ -80,7 +89,6 @@ console.log(arr.unique());
 const h1 = document.querySelector('h1');
 console.dir(x => x + 1);
 
-
 const Car = function (make, speed) {
   this.make = make;
   this.speed = speed;
@@ -101,8 +109,6 @@ myCar.accelerate();
 const myCar1 = new Car('Audi', 200);
 myCar1.brake();
 
-*/
-
 // Object creation using ES6 Approach
 
 // class expression
@@ -115,6 +121,7 @@ class PersonCl {
     this.birthYear = birthYear;
   }
 
+  // Instance Methods
   // Methods will be added to .prototype property
 
   calcAge() {
@@ -140,6 +147,13 @@ class PersonCl {
   get fullName() {
     return this._fullName;
   }
+
+  // Static methods
+
+  static hey() {
+    console.log('Hey there 👋');
+    console.log(this);
+  }
 }
 
 const jessica = new PersonCl('Jessica Davis', 1996);
@@ -158,7 +172,8 @@ jessica.greet();
 // 2. Classes are also first-class citizens
 // 3. Classes are executed in strict mode
 
-const walter = new PersonCl('Walter', 1965);
+const walter = new PersonCl('Walter Junior', 1965);
+PersonCl.hey();
 
 const account = {
   owner: 'Jonas',
@@ -176,3 +191,5 @@ const account = {
 console.log(account.latest);
 account.latest = 50;
 console.log(account.movements);
+
+*/
