@@ -40,6 +40,9 @@ getCountryData('germany');
 getCountryData('bharat');
 getCountryData('pakistan'); */
 
+///////////////////////////////////////////////
+// Welcome to callback hell
+
 const renderCountry = function (data, className = '') {
   const html = `
     <article class="country ${className}">
@@ -59,6 +62,7 @@ const renderCountry = function (data, className = '') {
   countriesContainer.style.opacity = 1;
 };
 
+/*
 const getCountryAndNeighbour = function (country) {
   // AJAX call country 1
   const request = new XMLHttpRequest();
@@ -105,3 +109,12 @@ setTimeout(() => {
     }, 1000);
   }, 1000);
 }, 1000);
+*/
+
+// const request = new XMLHttpRequest();
+//   request.open('GET', `https://restcountries.eu/rest/v2/name/${country}`);
+//   request.send();
+
+// getRequest using the fetch api
+const request = fetch('https://restcountries.eu/rest/v2/name/portugal');
+console.log(request);
