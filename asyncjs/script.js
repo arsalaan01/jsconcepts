@@ -114,7 +114,7 @@ setTimeout(() => {
     }, 1000);
   }, 1000);
 }, 1000);
-*/
+
 
 // const getCountryData = function (country) {
 //   const request = fetch(`https://restcountries.eu/rest/v2/name/${country}`)
@@ -236,3 +236,16 @@ const whereAmI = function (lat, lng) {
 whereAmI(52.508, 13.381);
 whereAmI(19.037, 72.873);
 whereAmI(-33.933, 18.474);
+
+*/
+
+// Event loop which orchestrate callback queue vs promises special queue microtasks
+
+console.log('Test Start');
+setTimeout(() => console.log('0 sec timer'), 0);
+Promise.resolve('Resolved promise 1').then(res => console.log(res));
+Promise.resolve('Resolved promise 2').then(res => {
+  for (let i = 0; i < 1000000000; i++) {}
+  console.log(res);
+});
+console.log('Test End');
