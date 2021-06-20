@@ -1,0 +1,39 @@
+var _lodashEs = require('lodash-es');
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+var _lodashEsDefault = _parcelHelpers.interopDefault(_lodashEs);
+require('core-js/stable');
+// import cloneDeep from 'lodash';
+const state = {
+  cart: [{
+    product: 'bread',
+    quantity: 5
+  }, {
+    product: 'pizza',
+    quantity: 5
+  }],
+  user: {
+    loggedIn: true
+  }
+};
+const stateClone = Object.assign({}, state);
+const stateDeepClone = _lodashEsDefault.default(state);
+state.user.loggedIn = false;
+console.log(stateClone);
+console.log(stateDeepClone);
+// Using Parcel Module Bundler
+// hot module loading
+if (module.hot) {
+  module.hot.accept();
+}
+// configuring babel and polyfilling
+class Person {
+  #undefined = 'Hey';
+  constructor(name) {
+    this.name = name;
+    console.log(`${this.#undefined}, ${this.name}`);
+  }
+}
+const jonas = new Person('Jonas');
+console.log('Jonas' ?? null);
+console.log(cart.find(el => el.quantity >= 2));
+Promise.resolve('Test').then(x => console.log(x));

@@ -97,3 +97,27 @@ console.log(stateDeepClone);
 if (module.hot) {
   module.hot.accept();
 }
+
+// configuring babel and polyfilling
+
+class Person {
+  #greeting = 'Hey';
+  constructor(name) {
+    this.name = name;
+    console.log(`${this.#greeting}, ${this.name}`);
+  }
+}
+const jonas = new Person('Jonas');
+
+console.log('Jonas' ?? null);
+
+console.log(cart.find(el => el.quantity >= 2));
+
+Promise.resolve('Test').then(x => console.log(x));
+
+// import 'core-js/stable';
+import 'core-js/stable/array/find';
+import 'core-js/stable/promise';
+
+// pollyfilling asyn functions
+import 'regenerator-runtime/runtime';
