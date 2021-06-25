@@ -546,9 +546,9 @@ const showRecipe = async function () {
             <svg class="recipe__icon">
               <use href="src/img/icons.svg#icon-check"></use>
             </svg>
-            <div class="recipe__quantity">${
-              ing.quantity ? ing.quantity : ''
-            }</div>
+            <div class="recipe__quantity">${ing.quantity}?${
+                ing.quantity
+              }:${''}</div>
             <div class="recipe__description">
               <span class="recipe__unit">${ing.unit}</span>
               ${ing.description}
@@ -591,4 +591,4 @@ showRecipe();
 
 },{}]},["7BONy","3miIZ"], "3miIZ", "parcelRequirefade")
 
-//# sourceMappingURL=index.250b04c7.js.map
+//# sourceMappingURL=index.HASH_REF_6315ebf922a29661e8263da0250b04c7.js.map
