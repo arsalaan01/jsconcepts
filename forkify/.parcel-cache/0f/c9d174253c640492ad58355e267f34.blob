@@ -477,7 +477,6 @@ const showRecipe = async function () {
     renderSpinner(recipeContainer);
     // 1) Loading Recipe
     await _modelJs.loadRecipe(id);
-    const {recipe} = _modelJs.state;
     // Rendering Recipe
     const markup = `
     <figure class="recipe__fig">
@@ -579,7 +578,7 @@ const showRecipe = async function () {
 ['hashchange', 'load'].forEach(ev => window.addEventListener(ev, showRecipe));
 
 },{"url:../img/icons.svg":"3t5dV","core-js/stable":"1PFvP","regenerator-runtime/runtime":"62Qib","@parcel/transformer-js/lib/esmodule-helpers.js":"5gA8y","./model.js":"1hp6y"}],"3t5dV":[function(require,module,exports) {
-module.exports = require('./bundle-url').getBundleURL() + "icons.d4a14980.svg"
+module.exports = require('./bundle-url').getBundleURL() + "icons.HASH_REF_f6727c52d326b6f99dffa0b9d4a14980.svg"
 },{"./bundle-url":"3seVR"}],"3seVR":[function(require,module,exports) {
 "use strict";
 
@@ -13135,28 +13134,24 @@ const state = {
   recipe: {}
 };
 const loadRecipe = async function (id) {
-  try {
-    const res = await fetch(// 'https://forkify-api.herokuapp.com/api/v2/recipes/5ed6604591c37cdc054bcb34'
-    `https://forkify-api.herokuapp.com/api/v2/recipes/${id}`);
-    const data = await res.json();
-    if (!res.ok) throw new Error(`${data.message} (${res.status})`);
-    const {recipe} = data.data;
-    state.recipe = {
-      id: recipe.id,
-      title: recipe.title,
-      publisher: recipe.publisher,
-      sourceUrl: recipe.sourceUrl,
-      image: recipe.image_url,
-      servings: recipe.servings,
-      cookingTime: recipe.cooking_time,
-      ingredients: recipe.ingredients
-    };
-    console.log(state.recipe);
-  } catch (err) {
-    alert(err);
-  }
+  const res = await fetch(// 'https://forkify-api.herokuapp.com/api/v2/recipes/5ed6604591c37cdc054bcb34'
+  `https://forkify-api.herokuapp.com/api/v2/recipes/${id}`);
+  const data = await res.json();
+  if (!res.ok) throw new Error(`${data.message} (${res.status})`);
+  const {recipe} = data.data;
+  state.recipe = {
+    id: recipe.id,
+    title: recipe.title,
+    publisher: recipe.publisher,
+    sourceUrl: recipe.sourceUrl,
+    image: recipe.image_url,
+    servings: recipe.servings,
+    cookingTime: recipe.cooking_time,
+    ingredients: recipe.ingredients
+  };
+  console.log(recipe);
 };
 
 },{"@parcel/transformer-js/lib/esmodule-helpers.js":"5gA8y"}]},["7BONy","3miIZ"], "3miIZ", "parcelRequirefade")
 
-//# sourceMappingURL=index.250b04c7.js.map
+//# sourceMappingURL=index.HASH_REF_6315ebf922a29661e8263da0250b04c7.js.map
