@@ -13019,7 +13019,7 @@ class RecipeView {
   #undefined;
   render(data) {
     this.#undefined = data;
-    const markup = this.#undefined;
+    const markup = this.#undefined();
     this.#undefined;
     this.#undefined.insertAdjacentHTML('afterbegin', markup);
   }
@@ -13090,20 +13090,7 @@ class RecipeView {
         <div class="recipe__ingredients">
           <h2 class="heading--2">Recipe ingredients</h2>
           <ul class="recipe__ingredient-list">
-          ${this.#undefined.ingredients.map(ing => {
-      return `
-          <li class="recipe__ingredient">
-            <svg class="recipe__icon">
-              <use href="src/img/icons.svg#icon-check"></use>
-            </svg>
-            <div class="recipe__quantity">${ing.quantity ? ing.quantity : ''}</div>
-            <div class="recipe__description">
-              <span class="recipe__unit">${ing.unit}</span>
-              ${ing.description}
-            </div>
-          </li>
-          `;
-    }).join('')}
+          ${this.#undefined.ingredients.map(this.#undefined).join('')}
           </ul>
         </div>
 
@@ -13126,6 +13113,20 @@ class RecipeView {
           </a>
         </div>
     `;
+  }
+  #undefined(ing) {
+    return `
+        <li class="recipe__ingredient">
+        <svg class="recipe__icon">
+            <use href="src/img/icons.svg#icon-check"></use>
+        </svg>
+        <div class="recipe__quantity">${ing.quantity ? ing.quantity : ''}</div>
+        <div class="recipe__description">
+            <span class="recipe__unit">${ing.unit}</span>
+            ${ing.description}
+        </div>
+        </li>
+        `;
   }
 }
 exports.default = new RecipeView();
